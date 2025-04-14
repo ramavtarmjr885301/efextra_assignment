@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "57223897713",
+    "project_id": "exefextra-49fb7",
+    "storage_bucket": "exefextra-49fb7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:57223897713:android:bf140608bb4280c0d671d0",
+        "android_client_info": {
+          "package_name": "com.example.exefextra_assignment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSptvF3T_6vnbycitBRpWvYxNOrK_d_GI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
