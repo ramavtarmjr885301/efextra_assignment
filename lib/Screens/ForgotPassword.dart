@@ -79,6 +79,9 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
       onTap: () => FocusScope.of(context).unfocus(), 
       child: Scaffold(
         appBar: AppBar(
+          leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: Icon(Icons.arrow_back_ios)),
           backgroundColor: Color.fromARGB(255, 56, 178, 235),
           title: Text(
             "Reset Password",

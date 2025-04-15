@@ -102,15 +102,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       ListTile(
                         leading: Padding(
                           padding: const EdgeInsets.only(right: 30, left: 0),
-                          child: IconButton(
-                            onPressed: () {
-                              // Navigator.pop(context);
-                            },
-                            icon: Icon(
-                              Icons.arrow_back_ios,
-                              size: size.width * 0.07,
-                            ),
-                          ),
+                          child: Icon(Icons.arrow_back_ios,
+                              size: size.width * 0.07,) 
                         ),
                         title: Text(
                           'Welcome',

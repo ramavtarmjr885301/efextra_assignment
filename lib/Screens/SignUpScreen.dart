@@ -130,7 +130,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           style: TextStyle(
                             fontSize: size.width * 0.08,
                             fontWeight: FontWeight.bold,
-                            color: Colors.teal,
+                            color: Color.fromARGB(255, 56, 178, 235),
                           ),
                         ),
 
@@ -242,7 +242,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         height: size.height * 0.06,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.teal,
+                            backgroundColor: Color.fromARGB(255, 56, 178, 235),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -284,7 +284,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             child: Text(
                               'Login',
                               style: TextStyle(
-                                color: Colors.teal,
+                                color: Color.fromARGB(255, 56, 178, 235),
                                 fontWeight: FontWeight.bold,
                                 fontSize: fontSize,
                               ),
