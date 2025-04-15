@@ -115,34 +115,33 @@ class _SignupScreenState extends State<SignupScreen> {
                       ListTile(
                         leading: Padding(
                           padding: const EdgeInsets.only(right: 30, left: 0),
-                          child: IconButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            icon: Icon(
-                              Icons.arrow_back_ios,
+                          child: IconButton(onPressed: ()=>Navigator.pop(context), icon: Icon(Icons.arrow_back_ios,
                               size: size.width * 0.07,
-                            ),
-                          ),
+                               color: Color(0xff312E49),) )
                         ),
                         title: Text(
                           'Welcome',
                           style: TextStyle(
                             fontSize: size.width * 0.08,
                             fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 56, 178, 235),
+                            color: Color(0xff0097B2),
+                            // 0xff312E49 black 
+                            //  0xff0097B2 blue
+                            
                           ),
                         ),
 
                         subtitle: Text(
                           'Create your account!',
-                          style: TextStyle(fontSize: size.width * 0.05),
+                          style: TextStyle(fontSize: size.width * 0.05, color: Color(0xff312E49), fontWeight: FontWeight.bold),
                         ),
                       ),
                       SizedBox(height: size.height * 0.04),
 
                       /// Email Field
-                      Text('E-mail', style: TextStyle(fontSize: fontSize)),
+                      Text('E-mail', style: TextStyle(fontSize: fontSize,
+                      color: Color(0xff312E49)
+                      )),
                       SizedBox(height: size.height * 0.01),
                       TextFormField(
                         controller: email,
@@ -171,7 +170,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       SizedBox(height: size.height * 0.025),
 
                       /// Password Field
-                      Text('Password', style: TextStyle(fontSize: fontSize)),
+                      Text('Password', style: TextStyle(fontSize: fontSize,color: Color(0xff312E49))),
                       SizedBox(height: size.height * 0.01),
                       TextFormField(
                         controller: password,
@@ -209,7 +208,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       /// Confirm Password Field
                       Text(
                         'Confirm Password',
-                        style: TextStyle(fontSize: fontSize),
+                        style: TextStyle(fontSize: fontSize,color: Color(0xff312E49)),
                       ),
                       SizedBox(height: size.height * 0.01),
                       TextFormField(
@@ -239,10 +238,10 @@ class _SignupScreenState extends State<SignupScreen> {
                       /// Sign Up Button
                       SizedBox(
                         width: double.infinity,
-                        height: size.height * 0.06,
+                        height: size.height * 0.07,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 56, 178, 235),
+                            backgroundColor: Color(0xff0097B2),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -255,8 +254,8 @@ class _SignupScreenState extends State<SignupScreen> {
                                   )
                                   : Text(
                                     'Sign Up',
-                                    style: TextStyle(
-                                      fontSize: fontSize,
+                                    style:  TextStyle(
+                                      fontSize: size.width * 0.065,
                                       color: Colors.white,
                                     ),
                                   ),
@@ -284,9 +283,12 @@ class _SignupScreenState extends State<SignupScreen> {
                             child: Text(
                               'Login',
                               style: TextStyle(
-                                color: Color.fromARGB(255, 56, 178, 235),
+                                color: Color(0xff0097B2),
                                 fontWeight: FontWeight.bold,
-                                fontSize: fontSize,
+                                fontSize: size.width * 0.039,
+                                decoration: TextDecoration.underline,
+                                decorationColor: Color(0xff0097B2),
+                                
                               ),
                             ),
                           ),

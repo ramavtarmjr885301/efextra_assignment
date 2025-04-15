@@ -43,8 +43,9 @@ class _OrganizationSelectionScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
-        leading: const Icon(Icons.arrow_back_ios),
+        leading: const Icon(Icons.arrow_back_ios, color: Color(0xff312E49),),
         actions: [
           IconButton(
             icon: Icon(
@@ -64,7 +65,10 @@ class _OrganizationSelectionScreenState
             child: Icon(Icons.menu, color: Colors.black),
           ),
         ],
-        backgroundColor: const Color.fromARGB(255, 56, 178, 235),
+        backgroundColor: const Color.fromARGB(255, 245, 248, 248),
+
+        // 0xff312E49 black 
+                            //  0xff0097B2 blue
         elevation: 0,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -78,7 +82,7 @@ class _OrganizationSelectionScreenState
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 56, 178, 235),
+                color: Color(0xff312E49),
               ),
             ),
             const SizedBox(height: 8),
@@ -86,7 +90,7 @@ class _OrganizationSelectionScreenState
               "Choose the organization you want to manage or work with",
               style: TextStyle(
                 fontSize: 16,
-                color: Color.fromARGB(255, 56, 178, 235),
+                color: Color(0xff312E49),
               ),
             ),
             const SizedBox(height: 20),
@@ -204,7 +208,7 @@ class _OrganizationSelectionScreenState
                                   height: 120,
                                   decoration:  BoxDecoration(
                                    
-                                    color: Color.fromARGB(255, 56, 178, 235),
+                                    color: Color(0xff0097B2),
                                     borderRadius: BorderRadius.only(
                                       topRight: Radius.circular(25),
                                     ),
@@ -229,7 +233,7 @@ class _OrganizationSelectionScreenState
         child: const Icon(Icons.logout),
       ),
       bottomNavigationBar: const BottomAppBar(
-        color: Color.fromARGB(255, 56, 178, 235),
+        color: Color(0xff0097B2),
         height: 55,
       ),
     );
@@ -251,7 +255,7 @@ class OrganizationDetailsPage extends StatelessWidget {
           Navigator.pop(context);
         }, icon: Icon(Icons.arrow_back_ios)),
         title: const Text('Organization Details'),
-        backgroundColor: const Color.fromARGB(255, 56, 178, 235),
+        backgroundColor: const Color(0xff0097B2),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

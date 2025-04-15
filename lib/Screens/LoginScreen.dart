@@ -101,22 +101,26 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       ListTile(
                         leading: Padding(
-                          padding: const EdgeInsets.only(right: 30, left: 0),
+                          padding: const EdgeInsets.only(right: 60, left: 0),
                           child: Icon(Icons.arrow_back_ios,
-                              size: size.width * 0.07,) 
+                              size: size.width * 0.07,
+                               color: Color(0xff312E49),) 
                         ),
                         title: Text(
                           'Welcome',
                           style: TextStyle(
                             fontSize: size.width * 0.08,
                             fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 56, 178, 235),
+                            color: Color(0xff0097B2),
+                            // 0xff312E49 black 
+                            //  0xff0097B2 blue
+                            
                           ),
                         ),
 
                         subtitle: Text(
                           'Glad to see you!',
-                          style: TextStyle(fontSize: size.width * 0.05),
+                          style: TextStyle(fontSize: size.width * 0.05, color: Color(0xff312E49), fontWeight: FontWeight.bold),
                         ),
                       ),
 
@@ -125,13 +129,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: TextStyle(
                           fontSize: size.width * 0.055,
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 56, 178, 235),
+                          color: Color(0xff0097B2),
                         ),
                       ),
                       SizedBox(height: size.height * 0.02),
                       Text(
                         'E-mail',
-                        style: TextStyle(fontSize: size.width * 0.038),
+                        style: TextStyle(fontSize: size.width * 0.038, color: Color(0xff312E49)),
                       ),
                       SizedBox(height: size.height * 0.01),
                       TextFormField(
@@ -161,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(height: size.height * 0.025),
                       Text(
                         'Password',
-                        style: TextStyle(fontSize: size.width * 0.038),
+                        style: TextStyle(fontSize: size.width * 0.038, color: Color(0xff312E49)),
                       ),
                       SizedBox(height: size.height * 0.01),
                       TextFormField(
@@ -225,7 +229,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               'Forgot Password?',
                               style: TextStyle(
                                 fontSize: size.width * 0.038,
-                                color: Color.fromARGB(255, 56, 178, 235),
+                                color: Color(0xff0097B2),
                               ),
                             ),
                           ),
@@ -238,12 +242,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: size.height * 0.07,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color.fromARGB(
-                              255,
-                              56,
-                              178,
-                              235,
-                            ),
+                            backgroundColor: const Color(0xff0097B2),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -257,7 +256,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   : Text(
                                     'Login',
                                     style: TextStyle(
-                                      fontSize: size.width * 0.045,
+                                      fontSize: size.width * 0.065,
                                       color: Colors.white,
                                     ),
                                   ),
@@ -282,11 +281,14 @@ class _LoginScreenState extends State<LoginScreen> {
                               );
                             },
                             child: Text(
-                              ' Sign up',
+                              'Sign up',
                               style: TextStyle(
-                                color: Color.fromARGB(255, 56, 178, 235),
+                                color: Color(0xff0097B2),
                                 fontWeight: FontWeight.bold,
                                 fontSize: size.width * 0.039,
+                                decoration: TextDecoration.underline,
+                                decorationColor: Color(0xff0097B2),
+                                
                               ),
                             ),
                           ),

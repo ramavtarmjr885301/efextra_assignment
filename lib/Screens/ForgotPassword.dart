@@ -82,7 +82,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
           leading: IconButton(onPressed: (){
           Navigator.pop(context);
         }, icon: Icon(Icons.arrow_back_ios)),
-          backgroundColor: Color.fromARGB(255, 56, 178, 235),
+          backgroundColor: Color(0xff0097B2),
           title: Text(
             "Reset Password",
             style: TextStyle(fontSize: fontSize + 2),
@@ -99,7 +99,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
             children: [
               Text(
                 'Enter your email to receive a reset link:',
-                style: TextStyle(fontSize: fontSize),
+                style: TextStyle(fontSize: fontSize, color: Color(0xff312E49)),
               ),
               SizedBox(height: size.height * 0.02),
 
@@ -123,7 +123,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 child: ElevatedButton(
                   onPressed: _isLoading ? null : resetPassword,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 56, 178, 235),
+                    backgroundColor: Color(0xff0097B2),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
