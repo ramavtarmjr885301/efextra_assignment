@@ -25,51 +25,64 @@ class _SignupScreenState extends State<SignupScreen> {
   }
 
   void _signup() async {
-    if (_formKey.currentState!.validate()) {
-      setState(() => _isLoading = true);
+  if (_formKey.currentState!.validate()) {
+    setState(() => _isLoading = true);
 
-      try {
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: email.text.trim(),
-          password: password.text.trim(),
-        );
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email.text.trim(),
+        password: password.text.trim(),
+      );
 
-        Get.offAll(() => const Wrapper());
+      if (!mounted) return;
 
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Account created successfully')),
-        );
-      } on FirebaseAuthException catch (e) {
-        String message = 'An error occurred';
+      // Show success message first
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Account created successfully')),
+      );
 
-        switch (e.code) {
-          case 'email-already-in-use':
-            message = 'This email is already in use.';
-            break;
-          case 'invalid-email':
-            message = 'Invalid email address.';
-            break;
-          case 'weak-password':
-            message = 'Password should be at least 6 characters.';
-            break;
-          default:
-            message = e.message ?? message;
-        }
+      // Wait a tiny moment before navigating
+      await Future.delayed(const Duration(milliseconds: 300));
 
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text(message)));
-      } catch (e) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Something went wrong. Please try again.'),
-          ),
-        );
-      } finally {
-        setState(() => _isLoading = false);
+      // Now navigate to Wrapper
+      Get.offAll(() => const Wrapper());
+
+    } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
+
+      String message = 'An error occurred';
+      switch (e.code) {
+        case 'email-already-in-use':
+          message = 'This email is already in use.';
+          break;
+        case 'invalid-email':
+          message = 'Invalid email address.';
+          break;
+        case 'weak-password':
+          message = 'Password should be at least 6 characters.';
+          break;
+        default:
+          message = e.message ?? message;
       }
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message)),
+      );
+    } catch (e) {
+      if (!mounted) return;
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Something went wrong. Please try again.'),
+        ),
+      );
+    } finally {
+      if (!mounted) return;
+      setState(() => _isLoading = false);
     }
   }
+}
+
 
   @override
   void dispose() {
@@ -117,7 +130,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           style: TextStyle(
                             fontSize: size.width * 0.08,
                             fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 56, 178, 235),
+                            color: Colors.teal,
                           ),
                         ),
 
@@ -229,7 +242,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         height: size.height * 0.06,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 56, 178, 235),
+                            backgroundColor: Colors.teal,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -271,7 +284,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             child: Text(
                               'Login',
                               style: TextStyle(
-                                color: Color.fromARGB(255, 56, 178, 235),
+                                color: Colors.teal,
                                 fontWeight: FontWeight.bold,
                                 fontSize: fontSize,
                               ),

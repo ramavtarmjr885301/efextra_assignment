@@ -1,7 +1,10 @@
 import 'package:exefextra_assignment/Screens/ForgotPassword.dart';
 import 'package:exefextra_assignment/Screens/SignUpScreen.dart';
+import 'package:exefextra_assignment/Screens/wrapper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -24,40 +27,53 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void _login() async {
-    if (_formKey.currentState!.validate()) {
-      setState(() => _isLoading = true);
+  if (_formKey.currentState!.validate()) {
+    setState(() => _isLoading = true);
 
-      try {
-        await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: email.text.trim(),
-          password: password.text.trim(),
-        );
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email.text.trim(),
+        password: password.text.trim(),
+      );
+      
 
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(const SnackBar(content: Text('Login successful')));
-      } on FirebaseAuthException catch (e) {
-        String message = 'An error occurred';
-        if (e.code == 'user-not-found') {
-          message = 'No user found for that email.';
-        } else if (e.code == 'wrong-password') {
-          message = 'Incorrect password.';
-        } else {
-          message = e.message ?? message;
-        }
+      // 🛡️ prevents using unmounted context
+ if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Login successful')),
+      );
+      // Navigate to another screen if needed here
+      
+      Get.offAll(() => const Wrapper());
 
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text(message)));
-      } catch (e) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(const SnackBar(content: Text('Something went wrong')));
-      } finally {
-        setState(() => _isLoading = false);
+      
+
+    } on FirebaseAuthException catch (e) {
+      if (!mounted) return;
+      String message = 'An error occurred';
+      if (e.code == 'user-not-found') {
+        message = 'No user found for that email.';
+      } else if (e.code == 'wrong-password') {
+        message = 'Incorrect password.';
+      } else {
+        message = e.message ?? message;
       }
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message)),
+      );
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Something went wrong')),
+      );
+    } finally {
+      if (!mounted) return;
+      setState(() => _isLoading = false);
     }
   }
+}
+
 
   @override
   void dispose() {

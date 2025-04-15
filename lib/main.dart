@@ -2,6 +2,7 @@ import 'package:exefextra_assignment/Screens/wrapper.dart';
 import 'package:exefextra_assignment/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +21,7 @@ final ValueNotifier<ThemeMode> themeNotifier = ValueNotifier(ThemeMode.light);
 
 class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     print(MediaQuery.of(context).size.width);
@@ -27,7 +29,7 @@ class _MyAppState extends State<MyApp> {
     return ValueListenableBuilder<ThemeMode>(
       valueListenable: themeNotifier,
       builder: (_, mode, __) {
-        return MaterialApp(
+        return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Organization App',
           theme: ThemeData(

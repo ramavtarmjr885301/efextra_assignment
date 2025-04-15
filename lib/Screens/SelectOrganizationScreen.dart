@@ -3,6 +3,7 @@ import 'package:exefextra_assignment/Model/Organization_Model.dart';
 import 'package:exefextra_assignment/main.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
 import 'package:http/http.dart' as http;
 
 class OrganizationSelectionScreen extends StatefulWidget {
@@ -120,6 +121,7 @@ class _OrganizationSelectionScreenState
                           );
                         },
                         child: Container(
+                          
                           margin: const EdgeInsets.only(bottom: 16),
                           decoration: BoxDecoration(
                             color:  Colors.white,
@@ -135,6 +137,7 @@ class _OrganizationSelectionScreenState
                             ],
                           ),
                           child: ClipRRect(
+                            
                             borderRadius: const BorderRadius.only(
                               topRight: Radius.circular(20),
                             ),
@@ -143,24 +146,25 @@ class _OrganizationSelectionScreenState
                                 // Main card content
                                 Expanded(
                                   child: Container(
+                                    height: 100,
                                     margin: const EdgeInsets.symmetric(
                                         horizontal: 15),
                                     padding: const EdgeInsets.symmetric(
-                                      horizontal: 14,
-                                      vertical: 9,
+                                      horizontal: 5,
+                                      vertical: 25,
                                     ),
-                                    decoration: const BoxDecoration(
+                                    decoration:  BoxDecoration(
                                       color: Color.fromARGB(255, 189, 233, 240),
                                     ),
                                     child: Row(
                                       children: [
                                         CircleAvatar(
-                                          radius: 24,
+                                          radius: 35,
                                           backgroundColor: const Color.fromARGB(255, 0, 148, 193),
                                           child: const Icon(
                                             Icons.apartment,
                                             color: Colors.white,
-                                            size: 28,
+                                            size: 35,
                                           ),
                                         ),
                                         const SizedBox(width: 16),
@@ -196,13 +200,13 @@ class _OrganizationSelectionScreenState
                                 ),
                                 // Right accent strip
                                 Container(
-                                  width: 20,
-                                  height: 80,
-                                  decoration: const BoxDecoration(
+                                  width: 30,
+                                  height: 120,
+                                  decoration:  BoxDecoration(
                                    
                                     color: Color.fromARGB(255, 56, 178, 235),
                                     borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(20),
+                                      topRight: Radius.circular(25),
                                     ),
                                   ),
                                 ),
@@ -243,6 +247,9 @@ class OrganizationDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, icon: Icon(Icons.arrow_back_ios)),
         title: const Text('Organization Details'),
         backgroundColor: const Color.fromARGB(255, 56, 178, 235),
       ),
