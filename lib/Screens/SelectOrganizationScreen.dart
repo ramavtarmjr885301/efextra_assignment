@@ -39,31 +39,48 @@ class _OrganizationSelectionScreenState
       throw Exception('Failed to load organization details');
     }
   }
+  // Drawer myDrawer=Drawer(
+  //   child: Column(mainAxisAlignment: MainAxisAlignment.center,
+    
+  //   children: [
+  //     ElevatedButton(onPressed:(){}, child: Icon(Icons.logout))
+  //   ],
+  //   ),
+  // );
+  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer:Drawer(
+    child: Column(mainAxisAlignment: MainAxisAlignment.center,
+    
+    children: [
+      ElevatedButton(onPressed:signOut, child: Icon(Icons.logout))
+    ],
+    ),
+  ) ,
       
       appBar: AppBar(
-        leading: const Icon(Icons.arrow_back_ios, color: Color(0xff312E49),),
+        
         actions: [
-          IconButton(
-            icon: Icon(
-              themeNotifier.value == ThemeMode.dark
-                  ? Icons.dark_mode
-                  : Icons.light_mode,
-              color: Colors.black,
+          Padding(
+            padding:  EdgeInsets.only(right: 40),
+            child: IconButton(
+              icon: Icon(
+                themeNotifier.value == ThemeMode.dark
+                    ? Icons.dark_mode
+                    : Icons.light_mode,
+                color: Colors.black,
+              ),
+              onPressed: () {
+                themeNotifier.value = themeNotifier.value == ThemeMode.light
+                    ? ThemeMode.dark
+                    : ThemeMode.light;
+              },
             ),
-            onPressed: () {
-              themeNotifier.value = themeNotifier.value == ThemeMode.light
-                  ? ThemeMode.dark
-                  : ThemeMode.light;
-            },
           ),
-          const Padding(
-            padding: EdgeInsets.only(right: 15),
-            child: Icon(Icons.menu, color: Colors.black),
-          ),
+         
         ],
         backgroundColor: const Color.fromARGB(255, 245, 248, 248),
 
@@ -227,11 +244,11 @@ class _OrganizationSelectionScreenState
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: signOut,
-        shape: const CircleBorder(),
-        child: const Icon(Icons.logout),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: signOut,
+      //   shape: const CircleBorder(),
+      //   child: const Icon(Icons.logout),
+      // ),
       bottomNavigationBar: const BottomAppBar(
         color: Color(0xff0097B2),
         height: 55,
