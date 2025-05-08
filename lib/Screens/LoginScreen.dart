@@ -38,6 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
       
 
       // 🛡️ prevents using unmounted context
+      // 🛡️ prevents using unmounted context
  if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Login successful')),
